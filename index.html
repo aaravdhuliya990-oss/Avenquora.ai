@@ -2,342 +2,787 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#081426">
-  <meta name="description" content="AVENQORA connects businesses with technology, AI solutions and professional services.">
-  <title>AVENQORA | Business, connected.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071426">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>AVENQORA — Business, connected.</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #081426;
-      color: #ffffff;
-      line-height: 1.6;
-    }
+<meta name="description" content="AVENQORA is building a connected global destination for business technology, AI solutions and professional services.">
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 8%;
-      border-bottom: 1px solid #24344b;
-    }
+<style>
+:root {
+  --navy: #071426;
+  --navy2: #0d2038;
+  --gold: #d9b66c;
+  --white: #ffffff;
+  --muted: #aab8ca;
+  --border: rgba(255,255,255,.12);
+}
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      color: #d8b66a;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    nav a {
-      color: #ffffff;
-      text-decoration: none;
-      margin-left: 22px;
-      font-size: 14px;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    nav a:hover {
-      color: #d8b66a;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.7;
+}
 
-    .hero {
-      min-height: 590px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 80px 8%;
-      background:
-        radial-gradient(ellipse at center, #193252 0%, #081426 70%);
-    }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    .eyebrow {
-      color: #d8b66a;
-      letter-spacing: 4px;
-      font-size: 12px;
-      margin-bottom: 22px;
-    }
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
 
-    h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      line-height: 1.1;
-      max-width: 900px;
-      margin-bottom: 25px;
-    }
+/* NAVIGATION */
 
-    h1 span {
-      color: #d8b66a;
-    }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7,20,38,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
 
-    .hero p {
-      color: #bdc8d7;
-      max-width: 620px;
-      font-size: 17px;
-      margin-bottom: 35px;
-    }
+.navbar {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .button {
-      display: inline-block;
-      background: #d8b66a;
-      color: #081426;
-      padding: 14px 27px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.logo {
+  color: var(--gold);
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
 
-    .button:hover {
-      background: #f0d28d;
-    }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
 
-    section {
-      padding: 85px 8%;
-    }
+.nav-links a {
+  font-size: 13px;
+  color: #d5deea;
+  transition: .2s;
+}
 
-    .section-title {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 15px;
-    }
+.nav-links a:hover {
+  color: var(--gold);
+}
 
-    .section-description {
-      text-align: center;
-      color: #aebbd0;
-      max-width: 650px;
-      margin: 0 auto 45px;
-    }
+.nav-button {
+  padding: 10px 18px;
+  border: 1px solid var(--gold);
+  color: var(--gold) !important;
+  border-radius: 3px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
+.menu-button {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: white;
+  padding: 8px 12px;
+  font-size: 20px;
+}
 
-    .card {
-      background: #101f34;
-      border: 1px solid #263a54;
-      padding: 30px;
-      border-radius: 8px;
-    }
+/* HERO */
 
-    .card .number {
-      color: #d8b66a;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 75% 40%, #173657 0%, transparent 42%),
+    linear-gradient(120deg,#071426,#0c2039);
+}
 
-    .card h3 {
-      margin: 15px 0 10px;
-      font-size: 21px;
-    }
+.hero-content {
+  padding: 100px 0;
+  max-width: 760px;
+}
 
-    .card p {
-      color: #aebbd0;
-      font-size: 14px;
-    }
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
 
-    .about {
-      background: #0d1b2e;
-      text-align: center;
-    }
+.hero h1 {
+  font-size: clamp(45px, 8vw, 82px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 25px;
+}
 
-    .about p {
-      color: #bdc8d7;
-      max-width: 720px;
-      margin: auto;
-    }
+.hero h1 span {
+  color: var(--gold);
+}
 
-    .contact {
-      text-align: center;
-    }
+.hero p {
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 17px;
+  margin-bottom: 35px;
+}
 
-    footer {
-      border-top: 1px solid #24344b;
-      padding: 28px 8%;
-      text-align: center;
-      color: #8998ad;
-      font-size: 13px;
-    }
+.primary-button {
+  display: inline-block;
+  background: var(--gold);
+  color: #071426;
+  font-weight: bold;
+  padding: 14px 25px;
+  border-radius: 3px;
+  transition: .2s;
+}
 
-    @media (max-width: 650px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
+.primary-button:hover {
+  background: #f0d28c;
+  transform: translateY(-2px);
+}
 
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
-      }
+.secondary-button {
+  display: inline-block;
+  margin-left: 12px;
+  border: 1px solid var(--border);
+  padding: 13px 24px;
+  border-radius: 3px;
+  color: white;
+}
 
-      nav a {
-        margin: 0;
-      }
+.hero-note {
+  margin-top: 60px;
+  color: #8193aa;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
 
-      .hero {
-        min-height: 520px;
-      }
+/* COMMON SECTIONS */
 
-      section {
-        padding: 65px 7%;
-      }
-    }
-  </style>
+section {
+  padding: 95px 0;
+}
+
+.section-label {
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(29px,5vw,43px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.section-description {
+  text-align: center;
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+/* SOLUTIONS */
+
+.solutions {
+  background: #0a192c;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+}
+
+.card {
+  padding: 28px 23px;
+  background: linear-gradient(145deg,#122943,#0c1c30);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.card-number {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.card h3 {
+  margin: 20px 0 12px;
+  font-size: 19px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card-link {
+  display: inline-block;
+  color: var(--gold);
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+/* PLATFORM */
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.platform-copy h2 {
+  font-size: clamp(30px,5vw,45px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.platform-copy p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.platform-box {
+  padding: 38px;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg,#122943,#0a192c);
+  border-radius: 6px;
+}
+
+.platform-item {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.platform-item:last-child {
+  border-bottom: 0;
+}
+
+.platform-item strong {
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.platform-item span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* INDUSTRIES */
+
+.industries {
+  background: #0a192c;
+}
+
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.industry {
+  border: 1px solid var(--border);
+  padding: 23px;
+  text-align: center;
+  background: #0e2036;
+}
+
+.industry h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.industry p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ABOUT */
+
+.about-content {
+  max-width: 780px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-content p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* CTA */
+
+.cta {
+  background:
+    radial-gradient(ellipse at center,#1a3655,#0a192c);
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.cta h2 {
+  font-size: clamp(30px,5vw,45px);
+  margin-bottom: 15px;
+}
+
+.cta p {
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 45px 0 25px;
+  background: #050f1d;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 35px;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+.footer-brand p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  color: #8190a4;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* MOBILE */
+
+@media(max-width:850px) {
+  .cards {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .platform-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+@media(max-width:650px) {
+  .navbar {
+    min-height: 70px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 22px;
+    background: #09182a;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hero {
+    min-height: 570px;
+  }
+
+  .hero-content {
+    padding: 75px 0;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .secondary-button {
+    margin: 12px 0 0;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .industry-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">AVENQORA</div>
+<header>
+  <div class="container navbar">
+    <a href="#home" class="logo">AVENQORA</a>
 
-    <nav>
+    <button class="menu-button" id="menuButton"
+      aria-label="Open navigation" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
       <a href="#solutions">Solutions</a>
+      <a href="#platform">Platform</a>
       <a href="#industries">Industries</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-button">Get in touch</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="eyebrow">THE FUTURE OF BUSINESS</div>
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">A CONNECTED BUSINESS ECOSYSTEM</div>
 
       <h1>
-        Business, <span>connected.</span>
+        Business,<br>
+        <span>connected.</span>
       </h1>
 
       <p>
-        A unified destination for business solutions,
-        intelligent technology and professional services.
-        Discover new possibilities with AVENQORA.
+        Bringing business technology, intelligent solutions
+        and professional services together in one
+        ambitious digital ecosystem.
       </p>
 
-      <a href="#solutions" class="button">
-        Explore AVENQORA
+      <a href="#solutions" class="primary-button">
+        Explore the platform
       </a>
-    </section>
 
-    <section id="solutions">
-      <h2 class="section-title">Our Solutions</h2>
+      <a href="#about" class="secondary-button">
+        Discover AVENQORA
+      </a>
 
-      <p class="section-description">
-        Bringing essential business capabilities together
-        through one connected platform.
-      </p>
-
-      <div class="cards">
-        <div class="card">
-          <div class="number">01 / TECHNOLOGY</div>
-          <h3>AI Solutions</h3>
-          <p>
-            Discover intelligent tools designed to support
-            business productivity and innovation.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="number">02 / SERVICES</div>
-          <h3>Services Marketplace</h3>
-          <p>
-            A planned marketplace connecting businesses
-            with professional service providers.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="number">03 / GROWTH</div>
-          <h3>Business Tools</h3>
-          <p>
-            Explore digital resources that can help
-            organisations plan and grow.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="number">04 / ENTERPRISE</div>
-          <h3>Enterprise Solutions</h3>
-          <p>
-            Technology-focused solutions designed
-            around organisational needs.
-          </p>
-        </div>
+      <div class="hero-note">
+        TECHNOLOGY · INNOVATION · OPPORTUNITY
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section id="industries">
-      <h2 class="section-title">Across Industries</h2>
+<section class="solutions" id="solutions">
+  <div class="container">
 
-      <p class="section-description">
-        A platform vision built to serve businesses
-        across different sectors.
-      </p>
+    <div class="section-label">WHAT WE ARE BUILDING</div>
+    <h2 class="section-title">Solutions for a connected world</h2>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Technology</h3>
-          <p>Digital transformation and innovation.</p>
-        </div>
+    <p class="section-description">
+      A unified vision for the tools, services and
+      technologies that modern businesses need.
+    </p>
 
-        <div class="card">
-          <h3>Education</h3>
-          <p>Learning and educational technology.</p>
-        </div>
+    <div class="cards">
 
-        <div class="card">
-          <h3>Healthcare</h3>
-          <p>Technology for healthcare organisations.</p>
-        </div>
+      <article class="card">
+        <div class="card-number">01 / INTELLIGENCE</div>
+        <h3>AI Solutions</h3>
+        <p>
+          Intelligent digital tools to support
+          productivity, creativity and business workflows.
+        </p>
+        <a class="card-link" href="#contact">Learn more →</a>
+      </article>
 
-        <div class="card">
-          <h3>Finance</h3>
-          <p>Business-focused financial technology.</p>
-        </div>
+      <article class="card">
+        <div class="card-number">02 / CONNECTION</div>
+        <h3>Services Marketplace</h3>
+        <p>
+          A planned space connecting organisations
+          with independent professionals and services.
+        </p>
+        <a class="card-link" href="#contact">Learn more →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-number">03 / PRODUCTIVITY</div>
+        <h3>Business Tools</h3>
+        <p>
+          Digital resources designed to help
+          organisations plan, organise and collaborate.
+        </p>
+        <a class="card-link" href="#contact">Learn more →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-number">04 / ORGANISATION</div>
+        <h3>Enterprise Solutions</h3>
+        <p>
+          A vision for connected technology and
+          solutions for organisational needs.
+        </p>
+        <a class="card-link" href="#contact">Learn more →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="platform">
+  <div class="container platform-grid">
+
+    <div class="platform-copy">
+      <div class="section-label" style="text-align:left">
+        THE AVENQORA VISION
       </div>
-    </section>
 
-    <section class="about" id="about">
-      <h2 class="section-title">About AVENQORA</h2>
+      <h2>One ecosystem.<br>Multiple possibilities.</h2>
 
       <p>
-        AVENQORA is being developed with a global vision:
-        to bring businesses, technology, tools and services
-        together through one connected digital platform.
-      </p>
-    </section>
-
-    <section class="contact" id="contact">
-      <h2 class="section-title">A New Way to Connect</h2>
-
-      <p class="section-description">
-        AVENQORA is at the beginning of its journey.
-        More capabilities will be introduced as the
-        platform develops.
+        Businesses often use different tools and services
+        to manage their operations. AVENQORA aims to bring
+        these experiences closer together.
       </p>
 
-      <a href="mailto:contact@avenqora.ai" class="button">
-        Contact Us
+      <p>
+        From intelligent technology to professional
+        services, our goal is to build a connected
+        destination for business.
+      </p>
+
+      <a href="#contact" class="primary-button">
+        Connect with us
       </a>
-    </section>
-  </main>
+    </div>
 
-  <footer>
-    <div class="logo">AVENQORA</div>
-    <p>Business, connected.</p>
-    <p>© 2026 AVENQORA. All rights reserved.</p>
-  </footer>
+    <div class="platform-box">
+
+      <div class="platform-item">
+        <strong>Technology</strong>
+        <span>Digital capabilities and intelligent tools.</span>
+      </div>
+
+      <div class="platform-item">
+        <strong>Productivity</strong>
+        <span>Resources for better business workflows.</span>
+      </div>
+
+      <div class="platform-item">
+        <strong>Professional Services</strong>
+        <span>Connections between businesses and providers.</span>
+      </div>
+
+      <div class="platform-item">
+        <strong>Enterprise</strong>
+        <span>Solutions for organisations and teams.</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="industries" id="industries">
+  <div class="container">
+
+    <div class="section-label">OUR GLOBAL OUTLOOK</div>
+    <h2 class="section-title">Across industries</h2>
+
+    <p class="section-description">
+      Designed with the ambition to support
+      businesses across multiple sectors.
+    </p>
+
+    <div class="industry-grid">
+      <div class="industry">
+        <h3>Technology</h3>
+        <p>Digital innovation</p>
+      </div>
+
+      <div class="industry">
+        <h3>Education</h3>
+        <p>Learning solutions</p>
+      </div>
+
+      <div class="industry">
+        <h3>Healthcare</h3>
+        <p>Healthcare technology</p>
+      </div>
+
+      <div class="industry">
+        <h3>Finance</h3>
+        <p>Financial technology</p>
+      </div>
+
+      <div class="industry">
+        <h3>Retail</h3>
+        <p>Commerce solutions</p>
+      </div>
+
+      <div class="industry">
+        <h3>Manufacturing</h3>
+        <p>Industrial technology</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-content">
+
+    <div class="section-label">WHO WE ARE</div>
+    <h2 class="section-title">Introducing AVENQORA</h2>
+
+    <p>
+      AVENQORA is an emerging digital platform project
+      built around a simple idea: business should be
+      more connected.
+    </p>
+
+    <p>
+      Our long-term vision is to create a global ecosystem
+      where businesses can discover technology, tools
+      and professional services through one destination.
+    </p>
+
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container">
+
+    <div class="section-label">THE JOURNEY BEGINS</div>
+
+    <h2>Let's build a connected future.</h2>
+
+    <p>
+      AVENQORA is under development.
+      Follow the journey as the platform evolves.
+    </p>
+
+    <a href="mailto:contact@avenqora.ai"
+       class="primary-button">
+      Contact AVENQORA
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">AVENQORA</div>
+        <p>Business, connected.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 AVENQORA. All rights reserved.
+      <br>
+      An emerging digital platform project.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
+
+menuButton.addEventListener("click", function () {
+  const isOpen = navLinks.classList.toggle("active");
+  menuButton.setAttribute("aria-expanded", isOpen);
+  menuButton.textContent = isOpen ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navLinks.classList.remove("active");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰";
+  });
+});
+</script>
 
 </body>
-            </html>
-
+</html>
