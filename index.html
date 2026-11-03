@@ -488,7 +488,7 @@
   .then(({ data, error }) => {
     if (error) {
       console.error("AVENQORA database test failed:", error.message);
-      alert("Database test failed. Check the connection.");
+      alert("Database test failed: " + error.message);
     } else {
       console.log("AVENQORA database connection successful!");
       alert("AVENQORA database connection successful!");
