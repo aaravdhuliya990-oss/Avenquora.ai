@@ -481,6 +481,14 @@
   );
 
   console.log("AVENQORA Supabase connection initialized.");
+  supabaseClient.auth.getSession()
+  .then(({ data, error }) => {
+    if (error) {
+      console.error("Connection test failed:", error.message);
+    } else {
+      console.log("AVENQORA Supabase connection successful!");
+    }
+  });
 </script>
 </body>
 </html>
