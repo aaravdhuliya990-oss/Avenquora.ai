@@ -481,7 +481,19 @@
   );
 
   console.log("AVENQORA Supabase connection initialized.");
-  supabaseClient.auth.getSession()
+  supabaseClient
+  .from("profiles")
+  .select("id")
+  .limit(1)
+  .then(({ data, error }) => {
+    if (error) {
+      console.error("AVENQORA database test failed:", error.message);
+      alert("Database test failed. Check the connection.");
+    } else {
+      console.log("AVENQORA database connection successful!");
+      alert("AVENQORA database connection successful!");
+    }
+  });
   .then(({ data, error }) => {
     if (error) {
       console.error("Connection test failed:", error.message);
