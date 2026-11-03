@@ -1,1 +1,343 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081426">
+  <meta name="description" content="AVENQORA connects businesses with technology, AI solutions and professional services.">
+  <title>AVENQORA | Business, connected.</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #081426;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      border-bottom: 1px solid #24344b;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      color: #d8b66a;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #d8b66a;
+    }
+
+    .hero {
+      min-height: 590px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 8%;
+      background:
+        radial-gradient(ellipse at center, #193252 0%, #081426 70%);
+    }
+
+    .eyebrow {
+      color: #d8b66a;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.1;
+      max-width: 900px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #d8b66a;
+    }
+
+    .hero p {
+      color: #bdc8d7;
+      max-width: 620px;
+      font-size: 17px;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #d8b66a;
+      color: #081426;
+      padding: 14px 27px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #f0d28d;
+    }
+
+    section {
+      padding: 85px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .section-description {
+      text-align: center;
+      color: #aebbd0;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: #101f34;
+      border: 1px solid #263a54;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .card .number {
+      color: #d8b66a;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #aebbd0;
+      font-size: 14px;
+    }
+
+    .about {
+      background: #0d1b2e;
+      text-align: center;
+    }
+
+    .about p {
+      color: #bdc8d7;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid #24344b;
+      padding: 28px 8%;
+      text-align: center;
+      color: #8998ad;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      nav a {
+        margin: 0;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      section {
+        padding: 65px 7%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">AVENQORA</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="eyebrow">THE FUTURE OF BUSINESS</div>
+
+      <h1>
+        Business, <span>connected.</span>
+      </h1>
+
+      <p>
+        A unified destination for business solutions,
+        intelligent technology and professional services.
+        Discover new possibilities with AVENQORA.
+      </p>
+
+      <a href="#solutions" class="button">
+        Explore AVENQORA
+      </a>
+    </section>
+
+    <section id="solutions">
+      <h2 class="section-title">Our Solutions</h2>
+
+      <p class="section-description">
+        Bringing essential business capabilities together
+        through one connected platform.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="number">01 / TECHNOLOGY</div>
+          <h3>AI Solutions</h3>
+          <p>
+            Discover intelligent tools designed to support
+            business productivity and innovation.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="number">02 / SERVICES</div>
+          <h3>Services Marketplace</h3>
+          <p>
+            A planned marketplace connecting businesses
+            with professional service providers.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="number">03 / GROWTH</div>
+          <h3>Business Tools</h3>
+          <p>
+            Explore digital resources that can help
+            organisations plan and grow.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="number">04 / ENTERPRISE</div>
+          <h3>Enterprise Solutions</h3>
+          <p>
+            Technology-focused solutions designed
+            around organisational needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries">
+      <h2 class="section-title">Across Industries</h2>
+
+      <p class="section-description">
+        A platform vision built to serve businesses
+        across different sectors.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Technology</h3>
+          <p>Digital transformation and innovation.</p>
+        </div>
+
+        <div class="card">
+          <h3>Education</h3>
+          <p>Learning and educational technology.</p>
+        </div>
+
+        <div class="card">
+          <h3>Healthcare</h3>
+          <p>Technology for healthcare organisations.</p>
+        </div>
+
+        <div class="card">
+          <h3>Finance</h3>
+          <p>Business-focused financial technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">About AVENQORA</h2>
+
+      <p>
+        AVENQORA is being developed with a global vision:
+        to bring businesses, technology, tools and services
+        together through one connected digital platform.
+      </p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="section-title">A New Way to Connect</h2>
+
+      <p class="section-description">
+        AVENQORA is at the beginning of its journey.
+        More capabilities will be introduced as the
+        platform develops.
+      </p>
+
+      <a href="mailto:contact@avenqora.ai" class="button">
+        Contact Us
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">AVENQORA</div>
+    <p>Business, connected.</p>
+    <p>© 2026 AVENQORA. All rights reserved.</p>
+  </footer>
+
+</body>
+            </html>
+
