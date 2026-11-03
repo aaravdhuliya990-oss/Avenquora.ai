@@ -471,6 +471,16 @@
       });
     });
   </script>
+<script>
+  const SUPABASE_URL = "https://zrkoymynqpcdauckisnl.supabase.co/rest/v1/";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_OqyMRsGIJx72NbRWhqHRQA_zO5Bfgjw";
 
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+
+  console.log("AVENQORA Supabase connection initialized.");
+</script>
 </body>
 </html>
