@@ -446,6 +446,124 @@
     </section>
   </main>
 
+<section id="account" style="background:#0b1c32;padding:65px 20px;text-align:center;">
+  <div style="max-width:430px;margin:auto;">
+    <h2 style="color:#d6b46a;font-size:32px;margin-bottom:10px;">
+      AVENQORA Account
+    </h2>
+
+    <p style="color:#aab6c7;margin-bottom:25px;">
+      Access your business workspace.
+    </p>
+
+    <input
+      id="authEmail"
+      type="email"
+      placeholder="Email address"
+      autocomplete="email"
+      style="width:100%;padding:14px;margin-bottom:14px;border-radius:5px;border:1px solid #d6b46a;background:#102440;color:white;"
+    >
+
+    <input
+      id="authPassword"
+      type="password"
+      placeholder="Password"
+      autocomplete="current-password"
+      style="width:100%;padding:14px;margin-bottom:18px;border-radius:5px;border:1px solid #d6b46a;background:#102440;color:white;"
+    >
+
+    <button onclick="avenqoraSignUp()" style="width:100%;padding:13px;background:#d6b46a;color:#071426;border:0;border-radius:5px;font-weight:bold;margin-bottom:12px;">
+      Create Account
+    </button>
+
+    <button onclick="avenqoraLogin()" style="width:100%;padding:13px;background:#102440;color:white;border:1px solid #d6b46a;border-radius:5px;font-weight:bold;margin-bottom:12px;">
+      Login
+    </button>
+
+    <button onclick="avenqoraLogout()" style="width:100%;padding:13px;background:transparent;color:#d6b46a;border:1px solid #d6b46a;border-radius:5px;">
+      Logout
+    </button>
+
+    <p id="authMessage" style="color:#d6b46a;margin-top:20px;overflow-wrap:anywhere;">
+      Not logged in.
+    </p>
+  </div>
+</section>
+
+<script>
+async function avenqoraSignUp() {
+  const email = document.getElementById("authEmail").value.trim();
+  const password = document.getElementById("authPassword").value;
+  const message = document.getElementById("authMessage");
+
+  if (!email || !password) {
+    message.textContent = "Please enter your email and password.";
+    return;
+  }
+
+  message.textContent = "Creating your account...";
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email: email,
+    password: password
+  });
+
+  if (error) {
+    message.textContent = "Sign up failed: " + error.message;
+    return;
+  }
+
+  message.textContent = data.session
+    ? "Account created successfully!"
+    : "Account created. Please check your email for verification.";
+}
+
+async function avenqoraLogin() {
+  const email = document.getElementById("authEmail").value.trim();
+  const password = document.getElementById("authPassword").value;
+  const message = document.getElementById("authMessage");
+
+  if (!email || !password) {
+    message.textContent = "Please enter your email and password.";
+    return;
+  }
+
+  message.textContent = "Logging in...";
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email: email,
+    password: password
+  });
+
+  if (error) {
+    message.textContent = "Login failed: " + error.message;
+    return;
+  }
+
+  message.textContent = "Welcome to AVENQORA! Logged in as " +
+    data.user.email;
+}
+
+async function avenqoraLogout() {
+  const { error } = await supabaseClient.auth.signOut();
+
+  document.getElementById("authMessage").textContent = error
+    ? "Logout failed: " + error.message
+    : "You have logged out successfully.";
+}
+
+async function avenqoraCheckSession() {
+  const { data } = await supabaseClient.auth.getSession();
+
+  if (data.session) {
+    document.getElementById("authMessage").textContent =
+      "Logged in as " + data.session.user.email;
+  }
+}
+
+avenqoraCheckSession();
+</script>
+  
   <footer>
     <p>© 2026 <span>AVENQORA</span>. All rights reserved.</p>
     <p>Business, connected.</p>
